@@ -9,6 +9,9 @@ const questions = [
   },
   {
     title: 'What is your fav car?'
+  },
+  {
+    title: 'What is your favorite type of cat?'
   }
 ]
 
