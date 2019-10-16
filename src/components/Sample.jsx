@@ -35,11 +35,15 @@ class Sample extends React.Component {
     }
   }
 
+  isLastQ = () => {
+    return this.state.currentQuestionIdx === questions.length - 1
+  }
+
   render () {
     return (
       <div>
         <button onClick={this.prevQ}>Previous Question</button>
-        <button onClick={this.nextQ}>Next Question</button>
+        <button onClick={this.nextQ}>{this.isLastQ() ? 'Finish' : 'Next Question' }</button>
         <h3>{questions[this.state.currentQuestionIdx].title}</h3>
       </div>
     )
