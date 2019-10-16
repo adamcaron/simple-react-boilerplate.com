@@ -16,14 +16,28 @@ class Sample extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      currentQuestion: 0
+      currentQuestionIdx: 0
+    }
+  }
+
+  nextQ = () => {
+    if (this.state.currentQuestionIdx < questions.length - 1) {
+      return this.setState({ currentQuestionIdx: this.state.currentQuestionIdx + 1 })
+    }
+  }
+
+  prevQ = () => {
+    if (this.state.currentQuestionIdx > 0) {
+      return this.setState({ currentQuestionIdx: this.state.currentQuestionIdx - 1 })
     }
   }
 
   render () {
     return (
       <div>
-        <h3>{questions[this.state.currentQuestion].title}</h3>
+        <button onClick={this.prevQ}>Previous Question</button>
+        <button onClick={this.nextQ}>Next Question</button>
+        <h3>{questions[this.state.currentQuestionIdx].title}</h3>
       </div>
     )
   }
